@@ -3,6 +3,7 @@ import { API_URL } from "../config/index";
 import EventItem from "@/components/EventItem";
 import Link from "next/link";
 
+//props takes props from the getStaticProps()
 export default function Home(props) {
   const { events } = props;
   return (
@@ -27,6 +28,7 @@ export async function getStaticProps() {
 
   return {
     props: { events: events.slice(0, 3) },
+    //Build every 1s
     revalidate: 1,
   };
 }
